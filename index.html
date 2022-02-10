@@ -29,10 +29,6 @@
         return document.getElementById(elId)
     }
 
-    console.log(el("btnSum"));
-
-    el('btnSum').onclick = sum;
-
     function sum() {
 
         val1 = parseFloat(el("val1").value);
@@ -50,6 +46,8 @@
 
     }
 
+    console.log(el("btnSum"));
+
     function notNumber(val1, val2) {
         if (isNaN(val1) || isNaN(val2)) {
             alert("Digite os valores para calcular: ")
@@ -59,6 +57,12 @@
             return false
         }
     }
+
+    el('btnSum').onclick = sum;
+
+    el('val1').onfocus = function () { el('val1').select(); }
+    el('val2').onfocus = function () { el('val2').select(); }
+
 </script>
 
 </html>
