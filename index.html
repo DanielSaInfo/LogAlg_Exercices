@@ -1,9 +1,131 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
 </head>
+
 <body>
+    <form id="input" style="text-align: center">
+        <h3>Calculadora</h3>
+        <input type="number" id="val1" placeholder="Valor 1"><br>
+        <input type="number" id="val2" placeholder="Valor 2"><br>
+        <input type="button" id="btnSum" value="+">&nbsp;
+        <input type="button" id="btnSub" value="–">&nbsp;
+        <input type="button" id="btnMul" value="x">&nbsp;
+        <input type="button" id="btnDiv" value="÷"><br>
+        <input type="number" id="result" placeholder="Resultado" readonly>
+    </form>
 
 </body>
+
+<script>
+    var val1;
+    var val2;
+    var result;
+
+    function el(elId) {
+        return document.getElementById(elId)
+    }
+
+    function sum() {
+
+        val1 = parseFloat(el("val1").value);
+        val2 = parseFloat(el("val2").value);
+
+        console.log(val1, val2);
+
+        if (notNumber(val1, val2)) {
+            return false;
+        }
+
+        result = val1 + val2;
+
+        el('result').value = result
+
+    }
+
+    console.log(el('btnSum'));
+
+    function sub() {
+
+        val1 = parseFloat(el("val1").value);
+        val2 = parseFloat(el("val2").value);
+
+        console.log(val1, val2);
+
+        if (notNumber(val1, val2)) {
+            return false;
+        }
+
+        result = val1 - val2;
+
+        el('result').value = result
+
+    }
+
+    console.log(el('btnSub'));
+
+    function mul() {
+
+        val1 = parseFloat(el("val1").value);
+        val2 = parseFloat(el("val2").value);
+
+        console.log(val1, val2);
+
+        if (notNumber(val1, val2)) {
+            return false;
+        }
+
+        result = val1 * val2;
+
+        el('result').value = result
+
+    }
+
+    console.log(el('btnMul'));
+
+    function div() {
+
+        val1 = parseFloat(el("val1").value);
+        val2 = parseFloat(el("val2").value);
+
+        console.log(val1, val2);
+
+        if (notNumber(val1, val2)) {
+            return false;
+        }
+
+        result = val1 / val2;
+
+        el('result').value = result
+
+    }
+
+    console.log(el('btnDiv'));
+
+    function notNumber(val1, val2) {
+        if (isNaN(val1) || isNaN(val2)) {
+            alert("Digite os valores para calcular: ")
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
+    el('btnSum').onclick = sum;
+    el('btnSub').onclick = sub;
+    el('btnMul').onclick = mul;
+    el('btnDiv').onclick = div;
+
+    el('val1').onfocus = function () { el('val1').select(); }
+    el('val2').onfocus = function () { el('val2').select(); }
+
+</script>
+
 </html>
